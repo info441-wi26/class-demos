@@ -2,6 +2,7 @@ import {promises as fs} from 'fs'
 import express from 'express'
 const app = express()
 
+
 app.get('/', async (req, res) => {
     console.log("request to '/', sending back html")
     res.type('html')

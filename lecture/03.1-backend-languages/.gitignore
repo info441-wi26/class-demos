@@ -1,0 +1,13 @@
+node_modules
+.packages
+venv
+*.pyc
+__pycache__
+.idea
+*.iml
+java/catblog/target
+go/go
+.vscode/launch.json
+java/catblog/.classpath
+java/catblog/.project
+java/catblog/.settings

@@ -1,12 +1,16 @@
 {
-  "name": "demo_1_async",
+  "name": "demo-1-alt-tag-report",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "type": "module",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^7.0.2"
+  }
 }

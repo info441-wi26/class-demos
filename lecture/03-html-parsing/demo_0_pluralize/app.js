@@ -1,15 +1,13 @@
 import {promises as fs} from 'fs'
+import pluralize from 'pluralize';
 import express from 'express'
 const app = express()
-
-app.get('/api/getTime', async (req, res) => {
-    res.send("....")
-})
 
 app.get('/', async (req, res) => {
     console.log("request to '/', sending back html")
     res.type('html')
     let fileContents = await fs.readFile('index.html')
+
     res.send(fileContents)
 })
 
@@ -27,11 +25,29 @@ app.get('/index.js', async (req, res) => {
     res.send(fileContents)
 })
 
-app.get('/api/getTime', (req, res) => {
-    console.log("Getting time!")
-    let time = new Date()
+app.get('/favicon.ico', async (req, res) => {
+    console.log("request to '/favicon.ico', sending back png")
+    res.type('png')
+    let fileContents = await fs.readFile('favicon.ico')
+    res.send(fileContents)
+})
+
+/**
+ * @method GET 
+ * @param query: word
+ */
+app.get('/api/pluralize', async (req, res) => {
+    // expect GET localhost:3000/api/pluralize?word=coffee
+    let inputWord = req.query.word
+    if (!inputWord) {
+        res.status(400)
+        res.type("text")
+        res.send("Error: need word")
+    }
+
+    let pluralWord = pluralize(inputWord)
     res.type("txt")
-    res.send(time)
+    res.send(pluralWord)
 })
 
 app.listen(3000, () => {
