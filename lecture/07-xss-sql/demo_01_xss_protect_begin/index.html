@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script>
+        function init(){
+            const userInputWithHTML = "You <em>shouldn't</em> allow <strong>any</strong> html from users to be rendered as html"
+
+            //unsafe
+            document.getElementById('userInput1').innerHTML = userInputWithHTML
+        }
+    </script>
+</head>
+<body onload="init()">
+    <p>
+        <strong>Here is the user input:</strong> <span id='userInput1'></span>
+    </p>
+</body>
+</html>
