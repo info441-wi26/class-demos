@@ -1,3 +1,6 @@
 *node_modules/
 *.vs/
 *.DS_Store
+
+### For real projects, uncomment this to ignore environments.
+# .env
